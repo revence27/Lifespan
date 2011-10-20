@@ -1,0 +1,7 @@
+Lifespan
+========
+This is a program for terminating programs after a certain time period.
+
+The real purpose is to separate periodic process refresh issues from the business logic the same way that `cron` separates periodic process execution from business logic.
+
+It assumes that the process will be restarted (perhaps by `cron` or by the shellthat invoked `lifespan`). It exits with the same exit status that the invoked program exits with.
