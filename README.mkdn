@@ -4,4 +4,25 @@ This is a program for terminating programs after a certain time period.
 
 The real purpose is to separate periodic process refresh issues from the business logic the same way that `cron` separates periodic process execution from business logic.
 
-It assumes that the process will be restarted (perhaps by `cron` or by the shellthat invoked `lifespan`). It exits with the same exit status that the invoked program exits with.
+It assumes that the process will be restarted (perhaps by `cron` or by the program invoked `lifespan`, should it be [one that restarts programs that exit with error](https://github.com/revence27/Resuscitate)). It exits with the same exit status that the invoked program exits with.
+
+Compiling
+---------
+Requires [GHC](http://haskell.org/ghc/) as it is written in Haskell.
+
+With that in place, run
+
+```bash
+make all
+```
+
+It should generate a binary, `lifespan`, which, when invoked without arguments explains how to use it.
+
+Use
+---
+
+```bash
+lifespan 3600 cat
+```
+
+That command will run `cat` and then kill it, exiting, after one hour.
